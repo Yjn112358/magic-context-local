@@ -1,5 +1,11 @@
 # Changelog
 
+## 本地定制：Pi 修改审计
+
+- 在 `packages/pi-plugin/src/mutation-audit-pi.ts` 包裹本实例的上下文相关钩子与主动消息注入 API，默认关闭，通过 `MAGIC_CONTEXT_MUTATION_AUDIT=1` 开启。
+- 使用独立 JSONL 和 SHA256 快照记录前后事件、返回建议、异常，按 Pi 会话关联；不修改 Pi 核心或其他插件，不保证后续宿主合并和网络请求生效。
+- 用法与验证限制见 [Pi 修改审计](docs/pi-mutation-audit.md)。新增定向测试、类型检查及最终官方 build 通过；全量测试、lint 在当前 Windows 环境存在失败，详见该文档。
+
 Magic Context ships three npm packages from this repo (`@cortexkit/magic-context`, `@cortexkit/opencode-magic-context`, `@cortexkit/pi-magic-context`) and a Tauri dashboard. All three plugin packages share a single version line and ship together. The dashboard tracks its own `dashboard-vX.Y.Z` tag line.
 
 ## Source of truth

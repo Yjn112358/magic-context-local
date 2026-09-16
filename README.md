@@ -79,6 +79,8 @@ Run one session per project and keep it going for weeks, months, or years. It re
 
 ## Quick start
 
+本地 fork 的可选 Pi 上下文修改审计见 [Pi 修改审计](docs/pi-mutation-audit.md)。该能力仅存在于本地定制构建，默认关闭。
+
 Run the interactive setup wizard. It detects your models, configures everything, and handles compatibility.
 
 **macOS / Linux:**

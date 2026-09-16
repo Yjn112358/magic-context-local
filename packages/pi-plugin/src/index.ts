@@ -21,6 +21,7 @@
  */
 
 import { AsyncLocalStorage } from "node:async_hooks";
+import { withMagicMutationAudit } from "./mutation-audit-pi";
 import { createRequire } from "node:module";
 import { join, resolve } from "node:path";
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
@@ -1119,6 +1120,7 @@ export function resolveDreamerFromConfig(
  * All driven by the user's `magic-context.jsonc` (Pi convention paths).
  */
 export default async function (pi: ExtensionAPI): Promise<void> {
+	pi = withMagicMutationAudit(pi);
 	if (process.env[MAGIC_CONTEXT_PI_SUBAGENT_ENV] === "1") {
 		log(
 			`${PREFIX} subagent child detected (${MAGIC_CONTEXT_PI_SUBAGENT_ENV}=1); skipping full extension registration`,
